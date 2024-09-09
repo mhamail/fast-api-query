@@ -1,0 +1,54 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+venv/
+.env
+
+# Virtual environment
+venv/
+env/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Database
+*.sqlite3
+*.db
+
+# Logs
+*.log
+
+# Migrations
+migrations/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# FastAPI specific
+*.pyd
+*.pyi
+
+# Coverage reports
+.coverage
+coverage.xml
+htmlcov/
+
+# TypeScript/JavaScript related
+node_modules/
+*.tsbuildinfo
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# PyCharm project settings
+*.iml
+
+# MyPy
+.mypy_cache/
+.dmypy.json
