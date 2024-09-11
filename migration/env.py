@@ -2,7 +2,7 @@ from logging.config import fileConfig
 from sqlalchemy import engine_from_config, pool
 from alembic import context
 from querysqlalchemy.models import Base  # Adjust import based on your structure
-
+from querysqlalchemy.load_env import db
 
 # Load configuration
 config = context.config
@@ -12,7 +12,7 @@ if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
 # Set SQLAlchemy URL from the config
-config.set_main_option("sqlalchemy.url", config.get_main_option("sqlalchemy.url"))
+config.set_main_option(db, config.get_main_option(db))
 
 target_metadata = Base.metadata
 
@@ -33,7 +33,7 @@ def run_migrations_online():
 
 def run_migrations_offline():
     context.configure(
-        url=config.get_main_option("sqlalchemy.url"),
+        url=config.get_main_option(db),
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},

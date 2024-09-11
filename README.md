@@ -16,6 +16,13 @@ poetry add fastapi "uvicorn[standard] alembic"
 
 ```
 
+## configure poetry that run server with uvicorn directly
+
+```
+- poetry shell
+- uvicorn backend.main:app --port 8002 --reload
+```
+
 ## alembic
 
 poetry run alembic

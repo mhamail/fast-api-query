@@ -14,9 +14,7 @@ from fastapi import Depends, Request, status
 
 from querysqlalchemy.utils.hash import Hash
 
-SECRET_KEY = "fba012a2a0c9c3d884fdf15843f2aa438bac1b5e8527875ecd7187e3ce494158"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 10
+from querysqlalchemy.load_env import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 
 
 def get_user_by_email(db: Session, email: str):
@@ -37,7 +35,7 @@ def create_access_token(
         "refresh": refresh,
     }
 
-    token = jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
+    token = jwt.encode(payload, env.SECRET_KEY, algorithm=ALGORITHM)
     return token
 
 
